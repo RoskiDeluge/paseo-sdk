@@ -1,0 +1,24 @@
+# Node dependencies
+node_modules/
+
+# TypeScript build output
+dist/
+*.tsbuildinfo
+
+# Local environment
+.env
+.env.*.local
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# macOS & IDE/editor artifacts
+.DS_Store
+*.swp
+.vscode/
+.idea/
+
+# TypeScript cache (optional)
+.cache/
