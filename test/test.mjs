@@ -1,6 +1,6 @@
 import { createPaseoClient } from "../dist/index.js";
 
-const paseo = createPaseoClient("https://paseo-mvp.imginate.workers.dev");
+const paseo = createPaseoClient("https://${PASEO_POD_CONTAINER}.paseo.workers.dev");
 
 async function run() {
   try {
