@@ -27,8 +27,13 @@ Paseo's goal is not to build agents, but to serve as the infrastructural substra
 
 ## 📦 Installation
 
+> **Note:** This package is not yet published to npm. To use the SDK, clone the repository and build it locally:
+
 ```bash
-npm install paseo-sdk
+git clone https://github.com/RoskiDeluge/paseo-sdk.git
+cd paseo-sdk
+npm install
+npm run build
 ```
 
 ---
