@@ -1,6 +1,12 @@
 import { createPaseoClient } from "../dist/index.js";
+import dotenv from "dotenv";
 
-const paseo = createPaseoClient("https://${PASEO_POD_CONTAINER}.paseo.workers.dev");
+// Load environment variables from .env file
+dotenv.config();
+
+const paseo = createPaseoClient(
+  `https://${process.env.PASEO_POD_CONTAINER}.paseo.workers.dev`
+);
 
 async function run() {
   try {

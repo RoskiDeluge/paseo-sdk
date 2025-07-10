@@ -19,6 +19,7 @@
     "typescript": "^5.x"
   },
   "dependencies": {
+    "dotenv": "^17.2.0",
     "node-fetch": "^3.3.2"
   }
 }
