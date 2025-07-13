@@ -43,7 +43,7 @@ npm run build
 ```ts
 import { createPaseoClient } from "paseo-sdk";
 
-const paseo = createPaseoClient("https://your-paseo-endpoint.workers.dev");
+const paseo = createPaseoClient("https://your-paseo-endpoint.paseo.workers.dev");
 
 await paseo.usePod("my-entity");
 
