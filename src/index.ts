@@ -1,4 +1,5 @@
 export interface PaseoClient {
+  podName?: string;
   usePod(id: string): void;
   sendPrompt(prompt: string): Promise<string>;
   getConversation(): Promise<any[]>;
@@ -6,8 +7,16 @@ export interface PaseoClient {
   get(key: string): Promise<string | null>;
 }
 
-export function createPaseoClient(baseUrl: string): PaseoClient {
-  let podId: string | null = null;
+export async function createPaseoClient(
+  baseUrl = "https://paseo-core.paseo.workers.dev"
+): Promise<PaseoClient> {
+  const createRes = await fetch(`${baseUrl}/pods`, { method: "POST" });
+  if (!createRes.ok) {
+    throw new Error(`Failed to create pod: ${createRes.status}`);
+  }
+  const { podName } = await createRes.json();
+
+  let podId: string | null = podName;
 
   const ensurePod = () => {
     if (!podId) throw new Error("No pod selected. Call usePod(podId) first.");
@@ -15,6 +24,7 @@ export function createPaseoClient(baseUrl: string): PaseoClient {
   };
 
   return {
+    podName,
     usePod(id: string) {
       podId = id;
     },
