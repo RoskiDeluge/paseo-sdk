@@ -2,6 +2,8 @@
 
 **Paseo SDK** is a lightweight TypeScript client for interacting with [Paseo](https://github.com/RoskiDeluge/paseo-core), an experimental runtime for deploying intelligent, stateful pods that serve as digital counterparts to real-world entities. It enables developers to create and communicate with ephemeral yet durable compute environments—called **pods**—backed by Cloudflare Workers and Durable Objects.
 
+> **Dependency:** The SDK communicates with the runtime provided by [`paseo-core`](https://github.com/RoskiDeluge/paseo-core). The project references this package via a local file path, so you will need the `paseo-core` repository checked out alongside `paseo-sdk` or installed separately.
+
 > Each pod acts as an isolated micro-environment for compute + state, designed to represent and persist the actions of entities—be they people, teams, systems, services, or agents. The Paseo SDK gives you a simple API to create, use, and interact with these pods.
 
 ---
@@ -27,10 +29,14 @@ Paseo's goal is not to build agents, but to serve as the infrastructural substra
 
 ## 📦 Installation
 
-> **Note:** This package is not yet published to npm. To use the SDK, clone the repository and build it locally:
+> **Note:** This package is not yet published to npm. To use the SDK, clone the
+repositories and build the SDK locally. The dependency on `paseo-core` is
+declared via a local `file:` path, so place both projects side by side before
+running `npm install`:
 
 ```bash
 git clone https://github.com/RoskiDeluge/paseo-sdk.git
+git clone https://github.com/RoskiDeluge/paseo-core.git
 cd paseo-sdk
 npm install
 npm run build
