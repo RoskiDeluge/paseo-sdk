@@ -6,19 +6,14 @@ dotenv.config();
 
 async function run() {
   try {
-    // Automatically create the client and pod
     const paseo = await createPaseoClient();
+    console.log(`🚀 Created pod: ${paseo.podName}`);
 
-    // Use the created pod (it will be automatically created)
-    paseo.usePod(paseo.podName || "dev-test");
-
-    // Send a prompt and log the response
     const reply = await paseo.sendPrompt("What is Paseo?");
-    console.log("🤖 LLM Response:", reply);
+    console.log(`🤖 (${paseo.podName})`, reply);
 
-    // Retrieve and log the conversation
     const convo = await paseo.getConversation();
-    console.log("🧠 Conversation:", convo);
+    console.log(`🧠 (${paseo.podName})`, convo);
   } catch (err) {
     console.error("❌ Test failed:", err);
   }

@@ -43,9 +43,7 @@ npm run build
 ```ts
 import { createPaseoClient } from "paseo-sdk";
 
-const paseo = createPaseoClient("https://your-paseo-endpoint.paseo.workers.dev");
-
-await paseo.usePod("my-entity");
+const paseo = await createPaseoClient();
 
 const reply = await paseo.sendPrompt("What's the current state of this entity?");
 console.log("🤖", reply);
@@ -58,9 +56,13 @@ console.log("🧠", history);
 
 ## 🧰 API Reference
 
-### `createPaseoClient(baseUrl: string)`
+### `createPaseoClient(baseUrl?: string)`
 
-Returns an SDK instance for communicating with a Paseo pod.
+Creates a new pod on the Paseo service and returns a client for interacting with it.
+
+### `client.podName`
+
+The ID of the pod created during initialization.
 
 ### `.usePod(id: string)`
 
