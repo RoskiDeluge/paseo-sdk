@@ -38,6 +38,46 @@ npm run build
 
 ---
 
+## ⚙️ Backend Setup
+
+Before using the Paseo SDK, you need to deploy the paseo-core backend to Cloudflare Workers:
+
+### 1. Clone and Install paseo-core
+
+> **Note:** paseo-core is not yet published to npm. You need to clone and install it locally:
+
+```bash
+git clone https://github.com/RoskiDeluge/paseo-core.git
+cd paseo-core
+npm install
+```
+
+### 2. Authenticate with Cloudflare
+
+```bash
+npx wrangler auth
+```
+
+### 3. Deploy the Worker
+
+```bash
+npm run deploy
+```
+
+This will deploy your Paseo worker to Cloudflare and provide you with a URL like `https://paseo-core.your-subdomain.workers.dev`.
+
+### 4. Configure Environment
+
+Add the following to your `.env` file at the root of your project:
+
+```bash
+PASEO_WORKER_URL=https://paseo-core.your-subdomain.workers.dev
+```
+
+Replace the URL with the one provided after deployment.
+
+---
+
 ## 🚀 Quickstart
 
 ```ts
