@@ -14,9 +14,9 @@ export interface PaseoClient {
 
 export async function createPaseoClient(): Promise<PaseoClient> {
   // Ensure the baseUrl is set from .env
-  const baseUrl = process.env.PASEO_WORKER_URL;
+  const baseUrl = process.env.PASEO_ENDPOINT;
   if (!baseUrl) {
-    throw new Error("PASEO_WORKER_URL is not set in the .env file.");
+    throw new Error("PASEO_ENDPOINT is not set in the .env file.");
   }
 
   // Make a request to create a new pod
