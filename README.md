@@ -64,14 +64,14 @@ npx wrangler auth
 npm run deploy
 ```
 
-This will deploy your Paseo worker to Cloudflare and provide you with a URL like `https://paseo-core.your-subdomain.workers.dev`.
+This will deploy your Paseo worker to Cloudflare and provide you with a URL like `https://paseo-core.<your-account>.workers.dev`.
 
 ### 4. Configure Environment
 
 Add the following to your `.env` file at the root of your project:
 
 ```bash
-PASEO_WORKER_URL=https://paseo-core.your-subdomain.workers.dev
+PASEO_WORKER_URL=https://paseo-core.<your-account>.workers.dev
 ```
 
 Replace the URL with the one provided after deployment.
