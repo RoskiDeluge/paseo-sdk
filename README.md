@@ -131,6 +131,7 @@ Retrieves a value by key from the pod's memory.
 Paseo is grounded in the belief that digital systems should not require premature commitment to AI-native workflows. Instead, the priority is to represent entities—human or non-human—in ways that preserve continuity, autonomy, and potential for growth. Inspired by Marvin Minsky's "Society of Mind," Paseo pods can form networks of co-operating intelligences, but begin simply as containers for structured memory and interaction.
 
 Pods can live temporarily or persist indefinitely, accumulate experience, reflect decisions, or wait silently until needed. 
+
 ---
 
 ## 🧪 Local Testing
