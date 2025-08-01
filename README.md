@@ -1,6 +1,6 @@
 # 🛤️ Paseo SDK
 
-**Paseo SDK** is a lightweight TypeScript client for interacting with [Paseo](https://github.com/RoskiDeluge/paseo-core), an experimental runtime for deploying intelligent, stateful actors that serve as digital counterparts to real-world entities. It enables developers and agents to create and communicate with ephemeral yet durable compute environments—called **pods**—backed by Cloudflare Workers and Durable Objects.
+**Paseo SDK** is a lightweight TypeScript client for interacting with [Paseo](https://github.com/RoskiDeluge/paseo-core), an experimental runtime for deploying stateful actors that serve as digital counterparts to real-world entities. It enables developers and agents to create and communicate with ephemeral yet durable compute environments—called **pods**—backed by Cloudflare Workers and Durable Objects.
 
 > Each pod acts as an isolated micro-environment for a set of actors. The Paseo SDK gives developers and agents a simple API to create, use, and interact with these actors via HTTP endpoints.
 
