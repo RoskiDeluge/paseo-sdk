@@ -4,8 +4,8 @@ import dotenv from "dotenv";
 dotenv.config();
 
 export interface PaseoClient {
-  podName?: string;
-  usePod(id: string): void;
+  actorName?: string;
+  useActor(id: string): void;
   sendPrompt(prompt: string): Promise<string>;
   getConversation(): Promise<any[]>;
   set(key: string, value: string): Promise<void>;
@@ -26,29 +26,29 @@ export async function createPaseoClient(): Promise<PaseoClient> {
   }
   
   // Retrieve the pod name from the response
-  const { podName } = await createRes.json();
+  const { actorName } = await createRes.json();
 
-  if (!podName) {
-    throw new Error("No pod name returned from the pod creation request.");
+  if (!actorName) {
+    throw new Error("No actor name returned from the actor creation request.");
   }
 
-  let podId: string | null = podName;
+  let actorId: string | null = actorName;
 
   // Ensure the pod is selected before interacting with it
-  const ensurePod = () => {
-    if (!podId) throw new Error("No pod selected. Call usePod(podId) first.");
-    return `${baseUrl}/pods/${podId}`;
+  const ensureActor = () => {
+    if (!actorId) throw new Error("No actor selected. Call useActor(actorId) first.");
+    return `${baseUrl}/pods/${actorId}`;
   };
 
   // Return the client with the necessary methods
   return {
-    podName,
-    usePod(id: string) {
-      podId = id;
+    actorName,
+    useActor(id: string) {
+      actorId = id;
     },
 
     async sendPrompt(prompt: string): Promise<string> {
-      const url = `${ensurePod()}/llm`;
+      const url = `${ensureActor()}/llm`;
       const res = await fetch(url, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -60,7 +60,7 @@ export async function createPaseoClient(): Promise<PaseoClient> {
     },
 
     async getConversation(): Promise<any[]> {
-      const url = `${ensurePod()}/conversation`;
+      const url = `${ensureActor()}/conversation`;
       const res = await fetch(url);
       if (!res.ok) throw new Error(`Failed to get conversation: ${res.status}`);
       const data = await res.json();
@@ -68,13 +68,13 @@ export async function createPaseoClient(): Promise<PaseoClient> {
     },
 
     async set(key: string, value: string): Promise<void> {
-      const url = `${ensurePod()}/set?key=${encodeURIComponent(key)}&value=${encodeURIComponent(value)}`;
+      const url = `${ensureActor()}/set?key=${encodeURIComponent(key)}&value=${encodeURIComponent(value)}`;
       const res = await fetch(url);
       if (!res.ok) throw new Error(`Failed to set key: ${res.status}`);
     },
 
     async get(key: string): Promise<string | null> {
-      const url = `${ensurePod()}/get?key=${encodeURIComponent(key)}`;
+      const url = `${ensureActor()}/get?key=${encodeURIComponent(key)}`;
       const res = await fetch(url);
       if (!res.ok) throw new Error(`Failed to get key: ${res.status}`);
       const data = await res.json();

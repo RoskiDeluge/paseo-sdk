@@ -7,13 +7,13 @@ dotenv.config();
 async function run() {
   try {
     const paseo = await createPaseoClient();
-    console.log(`🚀 Created pod: ${paseo.podName}`);
+    console.log(`🚀 Created pod with actor: ${paseo.actorName}`);
 
     const reply = await paseo.sendPrompt("What is Paseo?");
-    console.log(`🤖 (${paseo.podName})`, reply);
+    console.log(`🤖 (${paseo.actorName})`, reply);
 
     const convo = await paseo.getConversation();
-    console.log(`🧠 (${paseo.podName})`, convo);
+    console.log(`🧠 (${paseo.actorName})`, convo);
   } catch (err) {
     console.error("❌ Test failed:", err);
   }

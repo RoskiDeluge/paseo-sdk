@@ -1,8 +1,8 @@
 # 🛤️ Paseo SDK
 
-**Paseo SDK** is a lightweight TypeScript client for interacting with [Paseo](https://github.com/RoskiDeluge/paseo-core), an experimental runtime for deploying intelligent, stateful pods that serve as digital counterparts to real-world entities. It enables developers and agents to create and communicate with ephemeral yet durable compute environments—called **pods**—backed by Cloudflare Workers and Durable Objects.
+**Paseo SDK** is a lightweight TypeScript client for interacting with [Paseo](https://github.com/RoskiDeluge/paseo-core), an experimental runtime for deploying intelligent, stateful actors that serve as digital counterparts to real-world entities. It enables developers and agents to create and communicate with ephemeral yet durable compute environments—called **pods**—backed by Cloudflare Workers and Durable Objects.
 
-> Each pod acts as an isolated micro-environment for compute + state, designed to represent and persist the actions of entities—be they people, teams, systems, services, or agents. The Paseo SDK gives you a simple API to create, use, and interact with these pods via HTTP endpoints.
+> Each pod acts as an isolated micro-environment for a set of actors. The Paseo SDK gives developers and agents a simple API to create, use, and interact with these actors via HTTP endpoints.
 
 ---
 
@@ -17,7 +17,7 @@ Paseo's goal is not to build agents, but to serve as an infrastructural substrat
 ## ✨ Features
 
 - 🌐 **Isolated micro-environments** for compute + state representation
-- 🧠 **Built-in pod memory**, scoped to each entity
+- 🧠 **Built-in actor memory**, scoped to each entity/actor
 - 💬 **Flexible interaction interface** (prompt/response, key-value storage)
 - 🗃️ **General-purpose design**: works with agents, orgs, services, or humans-in-the-loop
 - 🪶 **Zero-config, dependency-light design**
@@ -100,7 +100,7 @@ console.log("🧠", history);
 
 Creates a new pod on the Paseo service and returns a client for interacting with it.
 
-### `client.podName`
+### `client.actorName`
 
 The ID of the pod created during initialization.
 
