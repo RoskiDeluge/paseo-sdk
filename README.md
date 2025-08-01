@@ -102,27 +102,27 @@ Creates a new pod on the Paseo service and returns a client for interacting with
 
 ### `client.actorName`
 
-The ID of the pod created during initialization.
+The ID of the actor created during initialization.
 
-### `.usePod(id: string)`
+### `.useActor(id: string)`
 
-Selects the current pod (e.g. `user-42`, `team-alpha`, `service-monitor`).
+Selects the current actor.
 
 ### `.sendPrompt(prompt: string): Promise<string>`
 
-Sends a prompt to the pod. Returns the response (can be LLM-generated or custom logic).
+Sends a prompt to the actor. Returns the response.
 
 ### `.getConversation(): Promise<{ prompt, response }[]>`
 
-Retrieves full conversation history for the current pod.
+Retrieves full conversation history for the current actor.
 
 ### `.set(key: string, value: string): Promise<void>`
 
-Stores a value in the pod's key-value memory.
+Stores a value in the actor's key-value memory.
 
 ### `.get(key: string): Promise<string | null>`
 
-Retrieves a value by key from the pod's memory.
+Retrieves a value by key from the actor's memory.
 
 ---
 
@@ -130,7 +130,7 @@ Retrieves a value by key from the pod's memory.
 
 Paseo is grounded in the belief that digital systems should not require premature commitment to AI-native workflows. Instead, the priority is to represent entities—human or non-human—in ways that preserve continuity, autonomy, and potential for growth. Inspired by Marvin Minsky's "Society of Mind," Paseo pods can form networks of co-operating intelligences, but begin simply as containers for structured memory and interaction.
 
-Pods can live temporarily or persist indefinitely, accumulate experience, reflect decisions, or wait silently until needed. 
+Actors can live temporarily or persist indefinitely, accumulate experience, reflect decisions, or wait silently until needed. 
 
 ---
 
